@@ -36,7 +36,8 @@
             <div class="mb-5 text-center d-flex align-items-center justify-content-center">
                 <div class="mb-3 me-3">
                     <label for="inputText1" class="form-label">Add new task</label>
-                    <input type="text" class="form-control" id="inputText1" v-model="newTaskItem.text">
+                    <input type="text" class="form-control" id="inputText1" v-model="newTaskItem.text"
+                        @keyup.enter="addNewTask(todoList)">
                 </div>
                 <button class="btn btn-primary ms-3" @click="addNewTask(todoList)">
                     Add
@@ -44,9 +45,11 @@
             </div>
             <!-- Elenco task -->
             <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between" v-for="singleTask in todoList"
-                    v-bind:class="(singleTask.done === true ? 'text-decoration-line-through' : '')">
-                    {{ singleTask.text }}
+                <li class="list-group-item d-flex justify-content-between" v-for="singleTask in todoList">
+                    <span @click="reverseDone(singleTask)"
+                        v-bind:class="(singleTask.done === true ? 'text-decoration-line-through' : '')">
+                        {{ singleTask.text }}
+                    </span>
                     <button class="btn btn-danger" @click="deleteItem(singleTask.id)">
                         <i class="fa-solid fa-circle-xmark"></i>
                     </button>

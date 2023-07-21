@@ -24,7 +24,6 @@ Bonus:
 2- cliccando sul testo dell’item, invertire il valore della proprietà done del todo corrispondente (se done era uguale a false, impostare true e viceversa)
 */
 
-
 "use strict";
 
 const app = Vue.createApp({
@@ -92,6 +91,13 @@ const app = Vue.createApp({
 
             this.todoList.push(cloneNewItem);
         },
+        reverseDone(singleTask) {
+            if (singleTask.done === true) {
+                singleTask.done = false;
+            } else {
+                singleTask.done = true;
+            }
+        }
     }
 })
 
