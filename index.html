@@ -32,10 +32,20 @@
     <div id="app">
 
         <main class="container pt-5 pb-5">
+            <!-- Form per aggiungere nuovi task -->
+            <div class="mb-5 text-center d-flex align-items-center justify-content-center">
+                <div class="mb-3 me-3">
+                    <label for="inputText1" class="form-label">Add new task</label>
+                    <input type="text" class="form-control" id="inputText1" v-model="newTaskItem.text">
+                </div>
+                <button class="btn btn-primary ms-3" @click="addNewTask(todoList)">
+                    Add
+                </button>
+            </div>
+            <!-- Elenco task -->
             <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between"
-                v-for="singleTask in todoList"
-                v-bind:class="(singleTask.done === true ? 'text-decoration-line-through' : '')">
+                <li class="list-group-item d-flex justify-content-between" v-for="singleTask in todoList"
+                    v-bind:class="(singleTask.done === true ? 'text-decoration-line-through' : '')">
                     {{ singleTask.text }}
                     <button class="btn btn-danger" @click="deleteItem(singleTask.id)">
                         <i class="fa-solid fa-circle-xmark"></i>

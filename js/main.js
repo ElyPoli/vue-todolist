@@ -61,7 +61,14 @@ const app = Vue.createApp({
                     text: "Sesto task",
                     done: false,
                 }
-            ]
+            ],
+            newTaskItem: [
+                {
+                    id: "",
+                    text: "",
+                    done: false,
+                }
+            ],
         }
     },
     methods: {
@@ -77,7 +84,14 @@ const app = Vue.createApp({
                     this.todoList.splice(deleteIndex, 1);
                 }
             });
-        }
+        },
+        addNewTask(todoList) {
+            // Creo una copia del nuovo elemento per perdere la reattività
+            const cloneNewItem = {...this.newTaskItem};
+            cloneNewItem.id = todoList.length + 1; // aggiorno l'id
+
+            this.todoList.push(cloneNewItem);
+        },
     }
 })
 
