@@ -22,14 +22,27 @@
 
     <!-- Icona -->
     <link rel="icon" href="img/icon-logo.png">
+
+    <!-- Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
 <body>
-    
+
     <div id="app">
 
+        <main class="container pt-5 pb-5">
+            <ul class="list-group">
+                <li class="list-group-item"
+                v-for="singleTask in todoList"
+                v-bind:class="(singleTask.done === true ? 'text-decoration-line-through' : '')">
+                    {{ singleTask.text }}
+                </li>
+            </ul>
+        </main>
+
     </div>
-    
+
     <!-- Custom Js -->
     <script src="js/main.js"></script>
 </body>

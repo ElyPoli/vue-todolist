@@ -30,11 +30,41 @@ Bonus:
 const app = Vue.createApp({
     data() {
         return {
-
+            todoList: [
+                {
+                    id: 1,
+                    text: "Primo task",
+                    done: true,
+                },
+                {
+                    id: 2,
+                    text: "Secondo task",
+                    done: true,
+                },
+                {
+                    id: 3,
+                    text: "Terzo task",
+                    done: false,
+                },
+                {
+                    id: 4,
+                    text: "Quarto task",
+                    done: true,
+                },
+                {
+                    id: 5,
+                    text: "Quinto task",
+                    done: false,
+                },
+                {
+                    id: 6,
+                    text: "Sesto task",
+                    done: false,
+                }
+            ]
         }
     },
     methods: {
-
     }
 })
 
