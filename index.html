@@ -33,10 +33,13 @@
 
         <main class="container pt-5 pb-5">
             <ul class="list-group">
-                <li class="list-group-item"
+                <li class="list-group-item d-flex justify-content-between"
                 v-for="singleTask in todoList"
                 v-bind:class="(singleTask.done === true ? 'text-decoration-line-through' : '')">
                     {{ singleTask.text }}
+                    <button class="btn btn-danger" @click="deleteItem(singleTask.id)">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </button>
                 </li>
             </ul>
         </main>

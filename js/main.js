@@ -65,6 +65,19 @@ const app = Vue.createApp({
         }
     },
     methods: {
+        deleteItem(singleTaskId) {
+            let deleteIndex;
+            
+            // Individuo l'indice dell'elemento da cancellare
+            this.todoList.forEach((singleElement, i) => {
+                const singleTask = this.todoList[i];      
+                
+                if (singleTask.id === singleTaskId) {
+                    deleteIndex = i;
+                    this.todoList.splice(deleteIndex, 1);
+                }
+            });
+        }
     }
 })
 
