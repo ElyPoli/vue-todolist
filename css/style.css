@@ -1,0 +1,32 @@
+:root {
+    --bs-primary: #612fab;
+    --bs-primary-rgb: 97, 47, 171;
+    --bs-border-color: #1c083a;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn-primary {
+    --bs-btn-bg: #1c083a;
+    --bs-btn-border-color: #1c083a;
+    --bs-btn-hover-bg: #2c0d5a;
+    --bs-btn-hover-border-color: #2c0d5a;
+    --bs-btn-active-bg: #2c0d5a;
+    --bs-btn-active-border-color: #2c0d5a;
+}
+
+header > h1 {
+    font-size: 4rem;
+}
+
+.task-checked {
+    text-decoration: line-through;
+    background-color: rgba(69, 20, 143, 0.5);
+    color: white;
+}
+
+.my-btn-close {
+    padding: 0.2rem 0.6rem;
+}

@@ -29,34 +29,44 @@
 
 <body>
 
-    <div id="app">
+    <div id="app" class="bg-primary vh-100 d-flex align-items-center justify-content-center">
 
-        <main class="container pt-5 pb-5">
-            <!-- Form per aggiungere nuovi task -->
-            <div class="mb-5 text-center d-flex align-items-center justify-content-center">
-                <div class="mb-3 me-3">
-                    <label for="inputText1" class="form-label">Add new task</label>
-                    <input type="text" class="form-control" id="inputText1" v-model="newTaskItem.text"
-                        @keyup.enter="addNewTask(todoList)">
+        <div class="w-75">
+            <header class="container">
+                <h1 class="text-center text-white fw-bold text-uppercase m-0">Todo List</h1>
+            </header>
+
+            <main class="container pt-5 pb-5">
+                <!-- Form per aggiungere nuovi task -->
+                <div class="mb-5 text-center d-flex justify-content-center">
+                    <div class="mb-3 w-50">
+                        <label for="inputText1" class="form-label fs-4 text-white m-0">Add new task:</label>
+                        <input type="text" class="form-control mt-2 mb-3" id="inputText1" placeholder="New task"
+                            v-model="newTaskItem.text" @keyup.enter="addNewTask(todoList)">
+                        <button class="btn btn-primary text-uppercase fs-5 mt-0" @click="addNewTask(todoList)">
+                            Add
+                        </button>
+                    </div>
                 </div>
-                <button class="btn btn-primary ms-3" @click="addNewTask(todoList)">
-                    Add
-                </button>
-            </div>
-            <!-- Elenco task -->
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between" v-for="singleTask in todoList">
-                    <span @click="reverseDone(singleTask)"
-                        v-bind:class="(singleTask.done === true ? 'text-decoration-line-through' : '')">
-                        {{ singleTask.text }}
-                    </span>
-                    <button class="btn btn-danger" @click="deleteItem(singleTask.id)">
-                        <i class="fa-solid fa-circle-xmark"></i>
-                    </button>
-                </li>
-            </ul>
-        </main>
-
+                <!-- Elenco task -->
+                <div class="d-flex justify-content-center">
+                    <div class="bg-white rounded-2 w-75">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between" v-for="singleTask in todoList"
+                                v-bind:class="(singleTask.done === true ? 'task-checked' : '')">
+                                <span @click="reverseDone(singleTask)">
+                                    {{ singleTask.text }}
+                                </span>
+                                <button class="btn btn-primary rounded-5 my-btn-close"
+                                    @click="deleteItem(singleTask.id)">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </div>
     </div>
 
     <!-- Custom Js -->
